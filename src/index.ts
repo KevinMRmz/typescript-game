@@ -1,11 +1,10 @@
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+import { CanvasService } from './classes/canvas';
+import { Game } from './classes/game';
+import { Level1 } from './levels/level-1';
 
-import confetti from 'canvas-confetti';
+const bootstrap = () => {
+  const game = new Game(new Level1(new CanvasService()));
+  game.update();
+};
 
-confetti.create(document.getElementById('canvas') as HTMLCanvasElement, {
-  resize: true,
-  useWorker: true,
-})({ particleCount: 200, spread: 200 });
+bootstrap();
